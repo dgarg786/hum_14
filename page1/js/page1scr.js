@@ -14,26 +14,7 @@ var n=5;
 				}	
 
 
-				$("#foo1").click(function(){
-			        $(this).animate({
-			            left: '200px',
-			            top: '200px',
-			            height: '+=150px',
-			            width: '+=150px'
-			        });
-			    });
-				 
-
-
-
-
-
-
-
-
-
-
-
+			
  	     
  	
 			});
