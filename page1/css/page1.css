@@ -1,0 +1,22 @@
+body{
+ width: 1280px;
+  height: 750px;
+  overflow: hidden;	
+}
+
+#wrapper1 {
+  width: 530px;
+  height: 530px;
+  position: relative;
+  margin: 110px auto;
+   border-radius: 50%
+}
+.circle {
+  position: absolute;
+  top: 200px;
+  left: 200px;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  opacity: 0.7;
+}
