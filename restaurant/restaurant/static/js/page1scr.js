@@ -1,4 +1,4 @@
-var n=5;
+var n=1;
 			
 
 			$(document).ready(function(){
@@ -17,7 +17,7 @@ var n=5;
             
          	$("#foo0").click(function(){
 	        
-	  			$(this).hide();
+	  			$(this).css("-webkit-animation","movetocenter 2s linear 1");
 	
 	       });
 
