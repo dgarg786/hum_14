@@ -6,5 +6,5 @@ def index(request):
 	colors= ['red','blue']
 	listf=zip(value,colors)
 	rotate= [60,120,180,240,300]
-	return render(request,'restaurant/cssTest.html',{'value':value,'color':'red','rotate':rotate,'colors':colors,'list':listf})
+	return render(request,'restaurant/page1.html',{'value':value,'color':'red','rotate':rotate,'colors':colors,'list':listf})
 # Create your views here.
