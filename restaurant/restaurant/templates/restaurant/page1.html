@@ -1,9 +1,12 @@
+{%load staticfiles%}
 <html>
 <head>
 	<title>TurnTabels</title>
 	<link rel="stylesheet" type="text/css" href="../../static/css/page1.css">
     <script src="../../static/js/jquery-1.10.2.js"></script>
-    <script type="text/javascript" src="../../static/js/page1scr.js"></script>
+    <script type="text/javascript" src="../../static/js/page1scr.js">
+    var n= {{noOfCategory}}
+    </script>
 </head>
 <body>
 
@@ -15,6 +18,7 @@
 	</div>
 <script type="text/javascript" src="../../static/js/propeller.js"></script>
 <script>
+	var n= {{noOfCategory}}
     	new Propeller(document.getElementById('wrapper1'), {inertia: .95});    
 </script>
 

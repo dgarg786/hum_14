@@ -1,4 +1,4 @@
-var n=1;
+//var n=1; // added variable on page1.html for value of n.
 			
 
 			$(document).ready(function(){
