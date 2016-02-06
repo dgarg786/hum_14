@@ -87,6 +87,35 @@ var force = d3.layout.force()
 		addHummerEventListener(this, d);
 	})
             .call(force.drag); 
+
+     var idef =  myChart.append('defs').append('mask')
+     .attr('id','maskmenu')
+     .attr('x','0%')
+     .attr('y' , '0%')
+     .attr('width','100%')
+     .attr('height','100%');
+
+      idef.append('circle')
+            .attr('cx',0)
+            .attr('cy',0)
+            .attr('r', 85)
+            .attr('fill','white')
+            .attr('fill-opacity',1)
+            ;
+            
+            idef.append('text')
+      //.attr('id','text_wrap')
+           .text('MENU')
+            .attr('y','14')
+            //.attr('font-family', 'Raleway', 'Helvetica Neue, Helvetica')
+            .attr('text-anchor', 'middle')
+            .attr('font-size', '2.5em')
+            .attr('font-weight','bold') ;
+
+
+
+
+
  
       node.append('animateTransform')
       .attr('attributeType','xml')
@@ -113,7 +142,7 @@ var force = d3.layout.force()
             })
             .attr('fill-opacity',function(d,i){ 
                   if ( i == 4 ) {
-                        return 0.9;
+                        return 0.4;
                   }
                   else{
                     return 0;
@@ -123,6 +152,7 @@ var force = d3.layout.force()
             .attr('fill', function(d,i){
                   if ( i == 4 ) {
                         return palette.lightgray;
+                        //return 'orange';
                   }
                   else{
                     return 'white';
@@ -146,6 +176,9 @@ var force = d3.layout.force()
                   } else {
                         return palette.lightgray;
                   }
+            })
+             .attr('mask',function(d,i){
+              if(i==4) return 'url(#maskmenu)';
             }); 
             //.attr('transform','rotate(90 150 160) rotate(90 150 80)');
             
@@ -174,7 +207,7 @@ var force = d3.layout.force()
            // .attr('display','block');
       node.append('text')
             .attr("id","rot")
-            .text(function(d,i){ return d.name; })
+            .text(function(d,i){ if(i!=4)return d.name; })
             .attr('font-family', 'Raleway', 'Helvetica Neue, Helvetica')
             .attr('fill', function(d, i){
               console.log(d.value);
@@ -197,6 +230,10 @@ var force = d3.layout.force()
                         return '1.2em';    
                   }
             }) 
+
+
+           
+
             //.attr('-webkit-text-fill-color', 'transparent')
             //.attr('-webkit-background-clip','text')
             //.attr('display','block');
