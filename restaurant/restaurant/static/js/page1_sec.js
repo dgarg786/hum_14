@@ -26,11 +26,11 @@ vidFade();
 
 
 var nodes = [
-      { name: "SNACKS", value:65},
-      { name: "DRINKS", target: [], value: 55 },
-      { name: "DESSERTS", target: [], value: 65 },  
-      { name: "SALADS", target: [], value: 50 },
-      { name: "MENU", target: [0,1,2,4], value: 48,px: 500,py: 250 }, 
+      { name: "SNACKS", value:70},
+      { name: "DRINKS", target: [], value: 70 },
+      { name: "DESSERTS", target: [], value: 70 },  
+      { name: "SALADS", target: [], value: 70 },
+      { name: "MENU", target: [0,1,2,4], value: 70,px: 500,py: 250 }, 
       { name: "MAIN-COURSE", target: [], value: 70 }, 
       //{ name: "Breakpoints", target: [0,3,4], value: 36 },
      /* {name: "yahiruk1", target:[0,1,2,3,4,5,6],value:0},
@@ -70,7 +70,7 @@ var force = d3.layout.force()
       .nodes(nodes)
       .links([])
       .gravity(0.12)
-      .charge(-1000)
+      .charge(-2000)
       .size([w,h]); 
 
       var link = myChart.selectAll('line') 
@@ -87,20 +87,29 @@ var force = d3.layout.force()
 		addHummerEventListener(this, d);
 	})
             .call(force.drag); 
+ 
+      node.append('animateTransform')
+      .attr('attributeType','xml')
+      .attr('attributeName','transform')
+      .attr('type','rotate')
+      .attr('values', function(d,i) {
+        // body...
+      if(i==4) return '0 0 0; 360 0 0'})
+      .attr('dur','5s')
+      .attr( 'additive','sum' )
+      .attr('repeatCount', 'indefinite');
 
-     
      node.append('circle')
+     
             .attr('cx', function(d,i){if(i==4) {d.fixed=true; return d.x;}
               else return d.x; })
             .attr('cy', function(d,i){if(i>6) return 1000;
               else return d.y; })
             .attr('r', function(d,i){
                   console.log(d.value);
-                  if ( i > 0 ) {
+                  
                         return circleWidth + d.value; 
-                  } else {
-                        return circleWidth + 35; 
-                  }
+                  
             })
             .attr('fill-opacity',function(d,i){ 
                   if ( i == 4 ) {
@@ -123,21 +132,23 @@ var force = d3.layout.force()
              
             .attr('stroke-dasharray',function(d,i){
               if(i==4){
-                return '40,30';
+                return '84 ,10';
               }
             })
             .attr('stroke-width', function(d,i){
-                  if(i==4) return '2';
-                      else  return '5';
+                  if(i==4) return '5';
+                      else  return '7';
             })
-            .attr('stroke-opacity',0.9)
+            .attr('stroke-opacity',0.6)
             .attr('stroke', function(d,i){
                   if ( i > 0 ) {
                         return palette.lightgray;// palette.lightgray'';
                   } else {
                         return palette.lightgray;
                   }
-            });
+            }); 
+            //.attr('transform','rotate(90 150 160) rotate(90 150 80)');
+            
 
 
       force.on('tick', function(e){ 
@@ -162,16 +173,17 @@ var force = d3.layout.force()
             //.attr('-webkit-background-clip','text');
            // .attr('display','block');
       node.append('text')
+            .attr("id","rot")
             .text(function(d,i){ return d.name; })
             .attr('font-family', 'Raleway', 'Helvetica Neue, Helvetica')
             .attr('fill', function(d, i){
               console.log(d.value);
                   if ( i > 0 && d.value < 10 ) {
-                        return palette.lightgray;
+                        return 'white';
                   } else if ( i > 0 && d.value >10 ) {
-                        return palette.lightgray;
+                        return 'white';
                   } else {
-                        return palette.lightgray;
+                        return 'white';
                   }
             })
             .attr('text-anchor', function(d, i) {

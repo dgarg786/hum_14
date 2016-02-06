@@ -35,9 +35,25 @@ h1{font: 400 1.75em/1.5em "Raleway", "Helvetica Neue", Helvetica, sans-serif; te
     width: auto;
     height: auto;
     z-index: -100;
-    opacity: 0.5;
+    opacity: 0.3;
     transform: translateX(-50%) translateY(-50%);
  background: url('hello.jpg') no-repeat;
   background-size: cover;
   transition: 1s opacity;
+}
+#rota{
+
+  -webkit-animation: spin 2s linear reverse infinite;
+}
+@-webkit-keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  
+  to {
+    transform: rotate(360deg);
+  }
+}
+#rot{
+  transform : rotateZ(360deg);
 }
