@@ -1,0 +1,144 @@
+<!doctype html>
+<html ng-app="myModule">
+<head>
+	<meta charset="UTF-8" /> 
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/component2.css" />
+		<script src="js/modernizr-2.6.2.min.js"></script>
+	<link href="bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="sty.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src = "angular.min.js"></script>
+	<script type="text/javascript" src = "script1.js"></script>
+	  <script type="text/javascript" src = "jquery-2.2.0.min.js"></script>
+	 <script type="text/javascript" src = "d3.js"></script> 
+
+
+</head>
+<body ng-controller="myController">
+
+<div style = "width:1380px;height:350px;background-color:#456BB2" >
+	<!-- <div class = "container-fluid"  > -->
+
+		<div class = "row0">
+			<div  id = "mera" class ="col-md-12" style = "width :300%;-webkit-transform: rotate(180deg); opacity:0.9;"  >
+				<div class = "row" >
+					<div class = "row" style = "margin-top :5px;margin-left :5px;">
+						<div class = "col-md-1"  ng-repeat = "node in nodes">
+							<div id = "but">
+								<img class="img-rounded" id="bg" src="drinks.jpg">
+								<div class="text-center h4" id="tex">{{node.name}}</div>
+								<div class="text-center h4" id="tex" style = " margin-top:30px; color:red;">Rs {{node.price}}</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- <div class = "row" >
+						<div class = "col-md-1"  ng-repeat = "node in nodes1">
+							<div id = "but" style = "margin-left:165px;">
+								<img class="img-rounded" id="bg" src="drinks.jpg">
+								<div class="text-center h4" id="tex">{{node.name}}</div>
+							</div>
+						</div>
+					</div> -->
+
+					<div class = "row">
+						<div class = "col-md-1"  ng-repeat = "node in nodes2">
+							<div id = "but" style = "margin-left:150px;">
+								<img class="img-rounded" id="bg" src="drinks.jpg">
+								<div class="text-center h4" id="tex">{{node.name}}</div>
+								<div class="text-center h4" id="tex" style = " margin-top:30px; color:red;">Rs {{node.price}}</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 
+	</div> -->
+
+<div style = "width:1380px;height:390px;background-color:rgb(221,230,57);" >
+	<!-- <div class = "container-fluid" > -->
+		<div class = "row1">
+			<div  id = "mera1" class ="col-md-12"  style = "width:300%;opacity:0.9;">
+				<div class = "row">
+					<div class = "row" style = "margin-top :5px;">
+						<div class = "col-md-1"  ng-repeat = "node in nodes">
+							<div id = "but">
+								<img class="img-rounded" id="bg" src="drinks.jpg">
+								<div class="text-center h4" id="tex">{{node.name}}</div>
+								<div class="text-center h4" id="tex" style = " margin-top:30px; color:red;">Rs {{node.price}}</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- <div class = "row" >
+						<div class = "col-md-1"  ng-repeat = "node in nodes1">
+							<div id = "but" style = "margin-left:160px;">
+								<img class="img-rounded" id="bg" src="drinks.jpg">
+								<div class="text-center h4" id="tex">{{node.name}}</div>
+							</div>
+						</div>
+					</div> -->
+
+					<div class = "row">
+						<div class = "col-md-1"  ng-repeat = "node in nodes2">
+							<div id = "but" onclick = "lman()" style = "margin-left:150px;" >
+								<img class="img-rounded" id="bg" src="drinks.jpg">
+								<div class="text-center h4" id="tex">{{node.name}}</div>
+								<div class="text-center h4" id="tex" style = " margin-top:30px; color:red;">Rs {{node.price}}</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- </div> -->
+
+
+
+	<div class="component">
+		<img class="img-rounded" id="bg1" src="drinks.jpg">
+				<button class="cn-button" id="cn-button" ></button>
+				
+				<div class="cn-wrapper" id="cn-wrapper">
+					<ul style = "position:relative;">
+					
+					 </ul>
+				</div>
+				
+			
+			</div> 
+		
+
+
+
+	
+	<div id = "bg4"> <div id = "but" onclick = "lman()"  style = "width:150px;background:rgb(166,165,101);">
+								<img  id = "bg3" src="images/im3.png">
+								<div class="text-center h4" id="tex" style = "color:black;">Platter</div>
+								<div class="text-center h4" id="tex" style = " margin-top:30px; color:red;">Rs 50</div>
+							</div> </div>
+
+
+
+
+		 <script src="js/polyfills.js"></script>
+		  <script src="js/demo2.js"></script>
+		 <script type="text/javascript" src="propeller.js"></script>
+		 <script>
+		        new Propeller(document.getElementsByClassName('component'), {inertia: 0.95});    
+		 </script>
+
+
+
+
+
+</body>
+</html>
+ 
