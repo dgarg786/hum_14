@@ -1,0 +1,63 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:400);
+
+
+body {
+
+  margin: 0;
+  background: #000; 
+  
+}
+video { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    opacity: 0.6;
+
+    transform: translateX(-50%) translateY(-50%);
+ 
+  background-size: cover;
+  transition: 1s opacity;
+}
+.stopfade { 
+   opacity: .5;
+}
+h1{font: 400 1.75em/1.5em "Raleway", "Helvetica Neue", Helvetica, sans-serif; text-align:center;}
+
+#pattern{
+  
+ 
+  position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    opacity: 0.3;
+    transform: translateX(-50%) translateY(-50%);
+ 
+  background-size: cover;
+  transition: 1s opacity;
+}
+#rota{
+
+  -webkit-animation: spin 2s linear reverse infinite;
+}
+@-webkit-keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  
+  to {
+    transform: rotate(360deg);
+  }
+}
+#rot{
+  transform : rotateZ(360deg);
+}

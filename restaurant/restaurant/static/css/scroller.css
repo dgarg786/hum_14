@@ -1,0 +1,107 @@
+
+
+.list {
+
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-stle: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    
+    /*text-transform: uppercase;*/
+    position: absolute;
+    margin-left: -140px;
+    top: 20%;
+}
+
+.list a {
+    
+    display: block;
+    color: #fff;
+}
+
+
+
+.list dt, .list dd {
+
+    text-indent: 10px;
+        line-height: 55px;
+        /*background: #E0FBAC;*/
+        /*background: orange;*/
+        margin: 0;
+        height: 40px;
+        width: 270px;
+        color: black;
+    }
+
+
+    .list dt {
+
+    /* Since we're hiding elements behind here, we need it in 3d */
+    -webkit-transform: translateZ(0.3px);
+    -moz-transform: translateZ(0.3px);
+    -ms-transform: translateZ(0.3px);
+    -o-transform: translateZ(0.3px);
+    transform: translateZ(0.3px);
+
+    /*text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);*/
+    font-size: 18px;
+    
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+    border: 2px solid rgba(255,0,0,0.3);
+    
+    background: rgba(255,127,0,.7);
+}
+
+.list dd {
+
+    /*border-top: 1px dashed rgba(255,255,255,0.3);*/
+    line-height: 20px;
+    font-size: 14px;
+    height: 20px;
+    margin: 0;
+    background: rgba(255,127,0,.7);
+}
+.dp {
+
+   /* border-top: 1px dashed rgba(255,255,255,0.3);*/
+
+   border-bottom-left-radius: 20%;
+    border-bottom-right-radius: 20%;
+   
+}
+
+
+
+.nigiri {
+
+    -webkit-transform: perspective(1200px) rotateY(40deg) !important;
+    -moz-transform: perspective(1200px) rotateY(40deg) !important;
+    -ms-transform: perspective(1200px) rotateY(40deg) !important;
+    -o-transform: perspective(1200px) rotateY(40deg) !important;
+    transform: perspective(1200px) rotateY(40deg) !important;
+
+    -webkit-transform-origin: 110% 25%;
+    -moz-transform-origin: 110% 25%;
+    -ms-transform-origin: 110% 25%;
+    -o-transform-origin: 110% 25%;
+    transform-origin: 110% 25%;
+        
+}
+.main_scroll{
+    left: 25%;
+    top: 50%; position: absolute;
+    visibility: hidden;
+}
+.scroll{
+
+-webkit-transform: rotate(180deg);
+position: absolute;
+left:22px;
+top:-10px;
+
+}
+
+
+

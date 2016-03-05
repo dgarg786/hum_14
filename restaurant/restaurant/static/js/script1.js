@@ -2,98 +2,110 @@
 var myApp = angular
 				.module("myModule",[])
 				.controller("myController",function($scope){
-	// var nodes = [
- //      { name: "shahi paneer" , price : 510  },
- //      { name: "matar paneer",  price: 450 },
- //      { name: "dal makhni",  price: 300 },  
- //      { name: "half poha",  price: 10 },
- //      { name: "deepa ka dudh",  price: 15 },
- //      { name: "randi",  price: 1000 },
- //      { name: "butter roti",  price: 15 },
- //      { name: "lazania",  price: 600 },
- //      { name: "masali patti",  price: 150 },
- //      { name: "garam bornvita",  price: 150 },
- //      { name: "thanda bornvita",  price: 200 },
- //      { name: "aloo parantha",  price: 500 }];
-    
-nodes=[];
-for (var i =0;i<array2.length/2;i++)
-{
-    nodes.push({
-        name:array2[i],
-        price:array3[i]
-    });
-}
+	
 
-
- var nodes1 = [];
-for (var i =array2.length/2;i<array2.length;i++)
-{
-    nodes1.push({
-        name:array2[i],
-        price:array3[i]
-    });
-}
+console.log("hellohh");
 
 
 
 var pp = 36;
 pp = pp/3;
 
-$scope.nodes = nodes;
-$scope.nodes1 = nodes1;
+// $scope.nodes = nodes;
+// $scope.nodes1 = nodes1;
+
+//start of lman1
 $scope.lman1=function(i){
-
-$.get("subCategory/",{category_id:i},function(data){
+console.log("hello from here");
+// $.get("subCategory/",{category_id:i},function(data){
       
-      var json= JSON.parse(data);
-      //console.log(json[0].name);
-      var nodes = [];
-      var nodes1= [];
+//       var json= JSON.parse(data);
+//       console.log(json);
+//      // console.log(json[0].name);
+//       var nodes = [];
+//       var nodes1= [];
 
-   for (var i =0;i<json.length/2;i++)
-{
-    nodes.push(
-        json[i]
-    );
-}
-  for (var i =json.length/2;i<json.length;i++)
-{
-    nodes1.push(
-        json[i]
-    );
-}   
-// for (var i =0;i<json.length/2;i++)
+
+//    for (var i =0;i<json.length/2;i++)
 // {
-//     nodes.push({
-//         name:json[i],
-//         price:json[i]
-//     });
+//     nodes.push(
+//         json[i]
+//     );
 // }
-// for (var i =json.length/2;i<json.length;i++)
+//   for (var i =json.length/2;i<json.length;i++)
 // {
-//     nodes1.push({
-//         name:json[i],
-//         price:json[i]
-//     });
-// }   
-$scope.nodes = nodes;
-$scope.nodes1 = nodes1;
+//     nodes1.push(
+//         json[i]
+//     );
+// }
 
-});
-
-}
-//$scope.lman=lman;
-
-});
+// console.log(data);   
 
 
+// $scope.nodes = nodes;
+// $scope.nodes1 = nodes1;
 
-function lman(){
-      var x = document.getElementById("bg1");
-       x.style.display= "block";
+// });
 
+// $('.upper_half').css('visibility','visible');
+// $('.lower_half').css('visibility','visible');
 
-      //$("#bg1").animate({display : 'block'});
 };
 
+
+
+
+
+// $scope$timeout.khol=function(){
+
+// }
+
+
+//end of lman
+
+
+// var beech = "../../static/images/POHA.jpg"; ///middle image on button click of item
+// var chosenone = "Half Poha";      //item name
+
+// $scope.beech = beech;
+// $scope.chosenone = chosenone;
+
+// $scope.khol = function(node){
+// $(".cn-button").css("display","none");
+//       var astring = node.details; //details
+// var tokens = astring.split(' ');
+// var n = tokens.length;
+// $scope.part1 = tokens.slice(0, n/4).join(' ');
+// $scope.part2 = tokens.slice(n/4 ,n/2).join(' ');
+// $scope.part3 = tokens.slice(n/2, 3*n/4).join(' ');
+// $scope.part4 = tokens.slice(3*n/4, n).join(' ');
+        
+//         $( '.main_scroll' ).css("visibility","visible");
+//         $( '.list' ).makisu( 'close' );
+    
+        
+//          $timeout(function(){$( '.list' ).makisu( 'open' );chosenone = node.name;$scope.chosenone = chosenone;beech = node.picture;$scope.beech = beech;}, 50);
+         
+       
+//         $("#bg1").css("display","block");
+
+        
+
+// }
+});
+
+
+function allowDrop(ev) {
+    ev.preventDefault();
+};
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+};
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+
+};

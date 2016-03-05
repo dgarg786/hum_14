@@ -1,0 +1,99 @@
+
+
+.roww {
+  top:-40px;
+  left: -50px;
+  display: table;
+ 
+  margin: auto;
+  position: relative;
+}
+
+.block {
+  display: table-cell;
+  
+  vertical-align: middle;
+  position: relative;
+
+}
+
+h1 {
+  position: relative;
+  display: inline-block;
+  font-family: "comic sans", times, serif;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  text-align: center;
+  font-size: 1.3em;
+  text-transform: capitalize;
+
+}
+
+h1:after, h1:before {
+  content: " ";
+  display: block;
+  position: absolute;
+  bottom: -.5em;
+  width: 1em;
+  height: 100%;
+  /*background-color: #69c48d;*/
+  background-color: #69c48d;
+  pointer-events: none;
+}
+
+h1:after {
+  bottom: auto;
+  top: -.5em;
+  right: -.57em;
+  z-index: -1;
+}
+
+h1:before {
+  /*bottom: auto;*/
+  /*top: -.5em;*/
+  left: -.57em;
+  z-index: -1;
+}
+
+h1 a {
+  display: inline-block;
+  position: relative;
+  padding: .15em .75em;
+  text-decoration: none;
+  color: #192238;
+  background-color: #8ed2a9;
+}
+
+h1 a:after, h1 a:before {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 0;
+  height: 0;
+  bottom: -.5em;
+  left: -.05em;
+  pointer-events: none;
+  -webkit-mask: none;
+}
+
+h1 a:before {
+  top: auto;
+  /*bottom: -.5em;*/
+  border-top: 0.5em solid #398e5b;
+  border-left: .5em solid transparent;
+}
+
+h1 a:after {
+  top: -.5em;
+  left: auto;
+  right: -.05em;
+  border-bottom: 0.5em solid #398e5b;
+  border-right: .5em solid transparent;
+}
+
+
+.kendall{
+  position: fixed;
+  top: 100px;
+}

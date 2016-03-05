@@ -7,7 +7,7 @@ from django.template.loader import render_to_string
 from django.core.serializers.json import DjangoJSONEncoder
 def index(request):
 	
-	return render(request,'restaurant/page1_sec.html',{})
+	return render(request,'restaurant/page1_sec2.html',{})
 
 
 def subCategory(request):
@@ -20,35 +20,17 @@ def subCategory(request):
    		
    		#print name
 	   	
-	   	array = []
-	   	array2 = []
-	   	array3=[]
-	   	itemName=ItemName.objects.filter(subCategory=name)#.values("name","price")
-	   	#print namePrice
+	   	print "hello"
+	   	
 	   	itemN=ItemName.objects.filter(subCategory=name).values("name","price","picture","details")	   	
-	   	print type(itemN)
 	   	data2=json.dumps(list(itemN),cls=DjangoJSONEncoder)
-	   	print data2
-	   	print type(data2)
+	   	
 
-	   	itemPrice=ItemName.objects.filter(subCategory=name).values_list('price',flat=True)
-
-	   	for i in itemName:
-	   		array2.append(str(i).encode("utf8"))
-	   	for i in itemPrice:
-	   		array3.append(str(i).encode("utf8"))
-	   	#print array2
-	   	for i in name:
-	   		 array.append(str(i).encode("utf8"))
-		#print array2
-		#this one is used when list is to be sent as json
-		data=json.dumps(array2)
+	   	#this one is used when list is to be sent as json
+		#data=json.dumps(array2)
 		# html = render_to_string('restaurant/ab.html', {'subCategory':array,'subCategoryItem':array2,'itemPrice':array3})
     	return HttpResponse(data2)
-	   	#return HttpResponse(data)
-	# print str(array[0])
-	# print type(array)
-
+	   	
 	
 	
 	return render(request,'restaurant/ab.html',{'subCategory':array,'subCategoryItem':array2,'itemPrice':array3})
@@ -80,3 +62,28 @@ def subMenu(request):
 	
 	
 	return render(request,'restaurant/ab.html',{'subCategory':array,'subCategoryItem':array2,'itemPrice':array3})
+
+def category(request):
+		if request.method=='GET':
+			id_number=request.GET['category_id']
+			print "#############",id_number
+			id_number=int(id_number)
+			#print id_number
+			name=CategoryName.objects.filter(pk=id_number)
+	   		
+	   		#print name
+		   	
+		   	
+		   	
+		   	itemN=SubCategoryName.objects.filter(categoryName=name).values("name")#,"price","picture","details")	   	
+		   	data2=json.dumps(list(itemN),cls=DjangoJSONEncoder)
+		   	print data2
+		   	return HttpResponse(data2)
+
+
+	   	#this one is used when list is to be sent as json
+		#data=json.dumps(array2)
+		# html = render_to_string('restaurant/ab.html', {'subCategory':array,'subCategoryItem':array2,'itemPrice':array3})
+    	
+	#return HttpResponse("hello")
+	   	

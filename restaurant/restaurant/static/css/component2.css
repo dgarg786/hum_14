@@ -19,7 +19,28 @@ body {
 
 .component {
 	position: absolute;
-	left:30%; 
+	left:40%; 
+	top: 25%;
+	width: 20%;
+	height: 50%;
+	/*background: #52be7f;*/
+
+	font-family: 'Lato', Arial, sans-serif;
+}
+.component1 {
+	position: absolute;
+	left:40%; 
+	top: 25%;
+	width: 20%;
+	height: 50%;
+	/*background: #52be7f;*/
+
+	font-family: 'Lato', Arial, sans-serif;
+}
+
+.component2 {
+	position: absolute;
+	left:-20%; 
 	top: 25%;
 	width: 40%;
 	height: 50%;
@@ -27,7 +48,6 @@ body {
 
 	font-family: 'Lato', Arial, sans-serif;
 }
-
 .cn-button {
 	position: absolute;
 	top: 50%;
@@ -41,7 +61,7 @@ body {
 	border: none;
 	border-radius: 50%;
 	
-	background-color: #fff;
+	background-color: rgba(255,179,179,1);
 	color: #52be7f;
 	text-align: center;
 	font-weight: 700;
@@ -104,7 +124,7 @@ body {
 	width: 10em;
 	height: 10em;
 	font-size: 1.5em;
-	/*border: 1px solid white;*/
+	border: 2px solid transparent;
 	transition: all .3s ease;
 	/*transform: rotate(50deg) skew(60deg);*/
 	transform-origin: 100% 100%;
@@ -119,12 +139,13 @@ body {
 	width: 14.5em;
 	height: 14.5em;
 	border-radius: 50%;
-	background: #429a67;
-	/*background: radial-gradient(transparent 35%, #429a67 35%);*/
+	/*background: #429a67;*/
+	/*background: rgba(255,51,51,0.8);*/
+	background: radial-gradient(transparent 40%, rgba(255,51,51,0.8) 35%);
 	color: #fff;
 	text-align: center;
 	text-decoration: none;
-	font-size: 1.2em;
+	font-size: 1.3em;
 	line-height: 2;
 	/*transform: skew(-60deg) rotate(-255deg) scale(1);*/
 	backface-visibility: hidden;
@@ -145,13 +166,16 @@ body {
 .csstransforms .cn-wrapper li a:active,
 .csstransforms .cn-wrapper li a:focus {
 	
-	background: radial-gradient(transparent 35%, #449e6a 35%);
+	/*background: radial-gradient(transparent 35%, #449e6a 35%);*/
+	/*background: #ff8080;*/
+	background: radial-gradient(transparent 40%, #ff8080 35%);
+	/*background: black;*/
 }
 .csstransforms .cn-wrapper li a:focus {
-    position: fixed; /* fix the displacement bug in webkit browsers when using tab key */
+  /*  position: fixed; *//* fix the displacement bug in webkit browsers when using tab key */
 }
 
-.csstransforms .opened-nav li {
+/*.csstransforms .opened-nav li {
 	transition: all .3s ease .3s;
 }
 
@@ -183,3 +207,4 @@ body {
 	transform: rotate(172deg) skew(60deg);
 }
 
+*/

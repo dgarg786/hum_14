@@ -1,7 +1,7 @@
 var   w = 1000,
       h =  550,
       circleWidth = 5; 
- 
+      Catagory_select=-1;
 
 var palette = {
       "lightgray": "#E5E8E8",
@@ -26,19 +26,13 @@ vidFade();
 
 
 var nodes = [
-      { name: "SNACKS", value:70},
-      { name: "DRINKS", target: [], value: 70 },
-      { name: "DESSERTS", target: [], value: 70 },  
-      { name: "SALADS", target: [], value: 70 },
       { name: "MENU", target: [0,1,2,4], value: 70,px: 500,py: 250 }, 
       { name: "MAIN-COURSE", target: [], value: 70 }, 
-      //{ name: "Breakpoints", target: [0,3,4], value: 36 },
-     /* {name: "yahiruk1", target:[0,1,2,3,4,5,6],value:0},
-      {name: "yahiruk2", target:[0,1,2,3,4,5,6],value:0},
-      {name: "yahiruk3", target:[0,1,2,3,4,5,6],value:0},
-      {name: "yahiruk4", target:[0,1,2,3,4,5,6],value:0},
-      {name: "yahiruk5", target:[0,1,2,3,4,5,6],value:0},
-      {name: "yahiruk6", target:[0,1,2,3,4,5,6],value:0},*/
+      { name: "SNACKS",target: [], value:70},
+      { name: "DRINKS", target: [], value: 70 },
+      { name: "DESSERTS", target: [], value: 70 },  
+      { name: "SALADS", target: [], value: 70 }, 
+
 
       ];
 
@@ -82,10 +76,11 @@ var force = d3.layout.force()
       var node =  myChart.selectAll('circle')  
             .data(nodes).enter() 
             .append('g')
+            .attr('id',function(d,i){return 'Catogary'+i;})
             .each(function(d, i){
               //force.drag=true;
-		addHummerEventListener(this, d);
-	})
+    addHummerEventListener(this, d);
+  })
             .call(force.drag); 
 
      var idef =  myChart.append('defs').append('mask')
@@ -123,17 +118,17 @@ var force = d3.layout.force()
       .attr('type','rotate')
       .attr('values', function(d,i) {
         // body...
-      if(i==4) return '0 0 0; 360 0 0'})
+      if(i==0) return '0 0 0; 360 0 0'})
       .attr('dur','5s')
       .attr( 'additive','sum' )
       .attr('repeatCount', 'indefinite');
 
      node.append('circle')
      
-            .attr('cx', function(d,i){if(i==4) {d.fixed=true; return d.x;}
+            .attr('cx', function(d,i){if(i==0) {d.fixed=true; return d.x;}
               else return d.x; })
-            .attr('cy', function(d,i){if(i>6) return 1000;
-              else return d.y; })
+            .attr('cy', function(d,i){
+               return d.y; })
             .attr('r', function(d,i){
                   console.log(d.value);
                   
@@ -141,7 +136,7 @@ var force = d3.layout.force()
                   
             })
             .attr('fill-opacity',function(d,i){ 
-                  if ( i == 4 ) {
+                  if ( i == 0 ) {
                         return 0.4;
                   }
                   else{
@@ -150,7 +145,7 @@ var force = d3.layout.force()
 
             })
             .attr('fill', function(d,i){
-                  if ( i == 4 ) {
+                  if ( i == 0 ) {
                         return palette.lightgray;
                         //return 'orange';
                   }
@@ -161,24 +156,22 @@ var force = d3.layout.force()
             })
              
             .attr('stroke-dasharray',function(d,i){
-              if(i==4){
+              if(i==0){
                 return '84 ,10';
               }
             })
             .attr('stroke-width', function(d,i){
-                  if(i==4) return '5';
+                  if(i==0) return '5';
                       else  return '7';
             })
             .attr('stroke-opacity',0.6)
             .attr('stroke', function(d,i){
-                  if ( i > 0 ) {
-                        return palette.lightgray;// palette.lightgray'';
-                  } else {
+                  
                         return palette.lightgray;
-                  }
+                  
             })
              .attr('mask',function(d,i){
-              if(i==4) return 'url(#maskmenu)';
+              if(i==0) return 'url(#maskmenu)';
             }); 
             //.attr('transform','rotate(90 150 160) rotate(90 150 80)');
             
@@ -202,105 +195,100 @@ var force = d3.layout.force()
           
       });
 
-      //node.attr('background', 'white');
-            //.attr('-webkit-background-clip','text');
-           // .attr('display','block');
+      
       node.append('text')
             .attr("id","rot")
-            .text(function(d,i){ if(i!=4)return d.name; })
+            .text(function(d,i){ if(i!=0)return d.name; })
             .attr('font-family', 'Raleway', 'Helvetica Neue, Helvetica')
             .attr('fill', function(d, i){
               console.log(d.value);
-                  if ( i > 0 && d.value < 10 ) {
+                 
                         return 'white';
-                  } else if ( i > 0 && d.value >10 ) {
-                        return 'white';
-                  } else {
-                        return 'white';
-                  }
+                  
             })
             .attr('text-anchor', function(d, i) {
                   return 'middle';
             })
 
             .attr('font-size', function(d, i){
-                  if (i==4) {
+                  if (i==0) {
                         return '1.6em';
                   } else {
                         return '1.2em';    
                   }
             }) 
 
+           
 
            
 
-            //.attr('-webkit-text-fill-color', 'transparent')
-            //.attr('-webkit-background-clip','text')
-            //.attr('display','block');
+           
+var present_catgory_select= -1;
 
-var fg = -1;
+
+
 function addHummerEventListener(that, d){
+  
 
-	Hammer(that).on("tap", function(event){
-    force = force.charge(function(e,i){
-      if(d==e&&fg!=e)return -80000;
-      else if (fg==e){
-        return -2000;
-      }
-      else return -2000;
-    });
+  Hammer(that).on("tap", function(event){
+     force.stop(); force.on('tick',null);
+     $('#pattern').css('visibility','hidden');
+     if(present_catgory_select!=-1){
+      if(d==present_catgory_select) return;
+      
+      closeWrapper();
+     } 
+
+     var id;
+     node  
+               .style('visibility',function(e,i){
+                    if(d!=e) {e.fixed=true;return 'hidden';}  
+                    else{ e.fixed=true;id=i;return 'visible';};
+                    }
+                 )
+           .transition().duration(1000)
+           .attr('transform',function(e,i){
+            if(d==e)return 'translate('+(500)+','+(282  )+')';
+            //else return 'translate('+(e.x)+','+(e.y)+')';
+            })
+         // .on(".drag", null);
+
+       node.selectAll('circle')
+           .transition().duration(1000)          
+            .attr('r',function(e,i){
+          if(d==e) return 2000;
+          else return 20;  
+            })
+            .transition().duration(1000) 
+            .attr('r',function(e,i){
+          if(d==e) {present_catgory_select = d; return 64;}
+          else return 20;  
+            }).attr('stroke-width',function(e,i){
+          if(d==e) { return 7;}
+          else return 2;  
+            });
+
+        node.selectAll('text')
+            .attr('font-size',function(e,i){
+          if(d==e) {return '1.2em';}
+          else return '.6em';  
+            });    
+
+             setTimeout(function() {
+   
+              openpage2(d,id);
+              }, 1500);
+   //Catagory_select=id;
+
+   
+
+
     
 
-   // force.alpha(1);
-    force.start();
-    //force.start();
-    //force = force.charge(-1000);
-    //force.start();
-		//console.log(event);
-		//alert("Tap! "+d.name);
-  //.transition()
-  node.selectAll('circle')
-  .transition().duration(1000)
-    /*.style('fill',function(e,i){
-    if(d==e)return 'blue';
-    else return 'white';
-  })*/
-  .attr('r',function(e,i){
-    if(d==e&&fg!=e) {//this.moveToFront();
-      //var sel = d3.select(this);
-  //sel.moveToFront();
-                     fg = d;return 2000;}
-    else if(fg ==e )
-      {fg = -1;return 30;}
-    else return 30;
-  })
-.attr('r',function(d,i){
-if(fg==-1) return 70;
-else if(d==e)return 2000;
-else return 30;
-})
-
-  });
-  /*
-	Hammer(that).on("swipeleft", function(event){
-		console.log(event);
-		alert("Swipe Left! "+d.name);
-	});
-	Hammer(that).on("swiperight", function(event){
-		console.log(event);
-		alert("Swipe Right! "+d.name);
-	});
-	
-	
-	//iphone??up,down??????????
-	Hammer(that).on("swipeup", function(event){
-		console.log(event);
-		alert("Swipe UP! "+d.name);
-	});
-	Hammer(that).on("swipedown", function(event){
-		console.log(event);
-		alert("Swipe Down! "+d.name);
-	});*/
+   });
+  
 }
+
+
 
 force.start();

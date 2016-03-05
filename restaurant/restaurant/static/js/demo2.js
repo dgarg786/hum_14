@@ -1,12 +1,13 @@
 
-items=[];
+// items=[
+// {name: "YOLO"}];
 //console.log(array[0]);
-for (var i =0;i<array.length;i++)
-{
-    items.push({
-        name:array[i]
-    });
-}
+// for (var i =0;i<array.length;i++)
+// {
+//     items.push({
+//         name:array[i]
+//     });
+// }
 
 
 var n = 6;
