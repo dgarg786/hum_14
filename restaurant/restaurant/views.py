@@ -22,7 +22,10 @@ def subCategory(request):
 	   	
 	   	print "hello"
 	   	
-	   	itemN=ItemName.objects.filter(subCategory=name).values("name","price","picture","details")	   	
+	   	itemN=ItemName.objects.filter(subCategory=name).values("name","price","pic","details")	   	
+	   	#print itemN[0]._meta.get_all_field_name()
+	   	#print itemN.objects.filter()[:1].get()
+	   	print list(itemN)
 	   	data2=json.dumps(list(itemN),cls=DjangoJSONEncoder)
 	   	
 

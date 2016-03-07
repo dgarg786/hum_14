@@ -92,6 +92,7 @@
 .main_scroll{
     left: 25%;
     top: 50%; position: absolute;
+    visibility: hidden;
 }
 .scroll{
 

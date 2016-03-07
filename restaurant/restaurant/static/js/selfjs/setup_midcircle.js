@@ -30,31 +30,19 @@ n = 6;
 
 
 
+$('.component').remove();
 
-//  myApp = angular
-//         .module("myModule",[])
-//         .controller("myController",function($scope){
-  
+ var $comp = $("<div>", {class: "component"});
+ var $wrapper = $("<div>", {id: "cn-wrapper", class: "cn-wrapper"});
+ var $ul = $("<ul>"); //, {id: "cn-wrapper", class: "cn-wrapper"});
+$ul.css("position","relative");
+$wrapper.append($ul);
+$comp.append($wrapper);
+   
+$('body').append($comp);
+selector = d3.select('ul');
+ new Propeller(document.getElementsByClassName('component'), {inertia: 0.95});    
 
-// $scope.lman1=function(i){
-// console.log("hello from here");
-// }
-
-// });
-
-
-
-
-// $('.component').remove();
-
-//  var $comp = $("<div>", {class: "component"});
-//  var $wrapper = $("<div>", {id: "cn-wrapper", class: "cn-wrapper"});
-//  var $ul = $("<ul>"); //, {id: "cn-wrapper", class: "cn-wrapper"});
-// $ul.css("position","relative");
-// $wrapper.append($ul);
-// $comp.append($wrapper);
-
-// $('body').append($comp);
 selector.selectAll('.cn-wrapper li').data(items).enter().append('li' )
 //.attr('onclick','lman()').
                         //.attr("style","-webkit-transform: rotate(76deg) skew("+(90-angle)+"deg);")
@@ -68,7 +56,7 @@ selector.selectAll('.cn-wrapper li').data(items).enter().append('li' )
                         .attr('onclick',function(d,i){return "lman1("+i+")"})
                         //.attr("style","-webkit-transform: rotate(76deg) skew("+(90-angle)+"deg);")
                         .append('a')
-                        .attr('ng-href','#')
+                        .attr('href','#')
                         //.attr("style","-webkit-transform: rotate(76deg) skew("+(-1)*(90-angle)+"deg);")
                         .append('span')
                         .text(function(d){ return d.name;});
@@ -88,6 +76,13 @@ $(".csstransforms .cn-wrapper li a").css("-webkit-transform","skew("+(-1)*(90-an
 
  
 }
+
+
+function lman1(i){
+  console.log("hello inside lman1");
+angular.element($('body')).scope().lman1(i);
+};
+
 
 function handler(){
         

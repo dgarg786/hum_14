@@ -34,7 +34,7 @@ body {
 	width: 20%;
 	height: 50%;
 	/*background: #52be7f;*/
-
+	z-index: -1;
 	font-family: 'Lato', Arial, sans-serif;
 }
 

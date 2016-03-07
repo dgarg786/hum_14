@@ -238,7 +238,11 @@ function addHummerEventListener(that, d){
       
       closeWrapper();
      } 
-
+     
+     $(".main_scroll").css("visibility","hidden");
+     $(".upper_half").css("visibility","hidden");
+     $(".lower_half").css("visibility","hidden");
+      $("#bg1").css("display","none");
      var id;
      node  
                .style('visibility',function(e,i){

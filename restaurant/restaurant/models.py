@@ -23,7 +23,7 @@ class SubCategoryName(models.Model):
 #Food Item fields
 class ItemName(models.Model):
 	name=models.CharField(max_length=128,unique=True)
-	picture = models.ImageField(upload_to='Food',blank=True)
+	pic = models.ImageField(upload_to='Food',blank=True)
 	subCategory=models.ForeignKey(SubCategoryName,on_delete=models.CASCADE)
 	details= models.TextField(blank=True)
 	price=models.PositiveIntegerField(default=0,blank=True)
