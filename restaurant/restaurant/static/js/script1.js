@@ -63,10 +63,19 @@ var beech = "../../static/images/POHA.jpg"; ///middle image on button click of i
 var chosenone = "Half Poha";      //item name
 
 $scope.beech = beech;
+
+var jugad;
+var cart = [];
+
+$scope.xy = function(){
+  //document.write(jugad.name);
+  cart.push({ name: jugad.name});
+  console.log(cart);
+}
 // $scope.chosenone = chosenone;
 
 $scope.khol = function(node){
-
+jugad = node;
   console.log("klk");
 $(".cn-button").css("display","none");
       var astring = node.details; //details

@@ -15,6 +15,12 @@
         <script src="../../static/js/standardjs/angular.min.js"></script>
         <script src="../../static/js/standardjs/propeller.js"></script>
         <script src="../../static/js/script1.js"></script>
+        <script>
+
+        $(document).ready(function(){
+       $('.row0').scrollLeft(4000); 
+        });
+        </script>
     <!-- standard js files -->
 
     <!-- css files  -->
@@ -43,13 +49,13 @@
 <img id="pattern" src="../../static/images/Untitled-1.png"/>  
     
 
-  
+<button ng-click = "xy()" style = "left:100px;position:relative;" >hey </button>  
 
   <div class ="upper_half">
    <div style = "width:100%;height:50%;background-color:rgba(255,179,255,0.5);position:absolute;top:0px;left:0px;z-index :-1;"> </div>
   <!-- <div class = "container-fluid"  >  background-color:#456BB2 -->
 
-    <div class = "row0">
+    <div class = "row0" style = "-webkit-mask: -webkit-linear-gradient(left, transparent,transparent 3%,black 20%, black 80%,transparent 97%,transparent);">
       <div  id = "mera" class ="col-md-12" style = "width :150%; -webkit-transform:rotate(180deg)"  >
         <div class = "row" >
           <div class = "row" style = "margin-top :5px;margin-left:30px;">
@@ -106,7 +112,7 @@
 <div class="lower_half" >
 <div style = "width:100%;height:50%;background-color:rgba(217,179,255,0.5);position:absolute;top:50%;left:0px;z-index :-1;"> </div>
   <!-- <div class = "container-fluid" >   background-color:rgb(221,230,57); -->
-    <div class = "row1">
+    <div class = "row1" style = "-webkit-mask: -webkit-linear-gradient(left, transparent,transparent 3%,black 20%, black 80%,transparent 97%,transparent);">
       <div  id = "mera1" class ="col-md-12"  style = "width:150%;">
         <div class = "row">
           
@@ -218,6 +224,17 @@
         <script src="../../static/js/standardjs/scroller.js"></script>
          <script src="../../static/js/selfjs/setup_midcircle.js"></script>
         <script src="../../static/js/selfjs/polyfills.js"></script>
+
+        <div  id = "hay" style = "height:30%;width:5%;top:0%;left:0%;background-color:rgba(255,179,255,0);position:absolute;">
+  </div>
+<div style = "height:30%;width:5%;top:0%;left:95%;background-color:rgba(255,179,255,0);position:absolute;">
+  </div>
+
+<div style = "height:30%;width:5%;top:70%;left:0%;background-color:rgba(255,179,255,0);position:absolute;">
+  </div>
+
+<div style = "height:30%;width:5%;top:70%;left:95%;background-color:rgba(255,179,255,0);position:absolute;">
+  </div>
         {%endverbatim%}
   </body>
 </html>
