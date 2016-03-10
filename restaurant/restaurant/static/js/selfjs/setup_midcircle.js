@@ -63,7 +63,9 @@ selector.selectAll('.cn-wrapper li').data(items).enter().append('li' )
 $(document).ready(function()
 {
     $(".cn-wrapper li").css("-webkit-transform","rotate("+50+"deg)  skew("+(90-angle)+"deg)");
+    $(".cn-wrapper li").css("-moz-transform","rotate("+50+"deg)  skew("+(90-angle)+"deg)");
 $(".csstransforms .cn-wrapper li a").css("-webkit-transform","skew("+(-1)*(90-angle)+"deg)" +"rotate("+(-1)*(90-angle/2)+"deg)  scale(1)");
+$(".csstransforms .cn-wrapper li a").css("-moz-transform","skew("+(-1)*(90-angle)+"deg)" +"rotate("+(-1)*(90-angle/2)+"deg)  scale(1)");
 
 });
 
@@ -97,7 +99,7 @@ function handler(){
      selector.selectAll('.csstransforms .opened-nav li')
             .attr("style", function(d,i)
             {
-                return "-webkit-transform: rotate("+(angle)*i+"deg) skew("+(90-angle)+"deg);";
+                return "-webkit-transform: rotate("+(angle)*i+"deg) skew("+(90-angle)+"deg);-moz-transform: rotate("+(angle)*i+"deg) skew("+(90-angle)+"deg);";
             }); 
     
   

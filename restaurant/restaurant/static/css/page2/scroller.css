@@ -97,6 +97,7 @@
 .scroll{
 
 -webkit-transform: rotate(180deg);
+-moz-transform: rotate(180deg);
 position: absolute;
 left:22px;
 top:-10px;

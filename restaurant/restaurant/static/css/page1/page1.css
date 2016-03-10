@@ -34,3 +34,14 @@ body{
     }
 }
 
+@-moz-keyframes movetocenter {
+
+
+    from {  
+    }
+    to {
+            -moz-transform:translate(0px,0px);
+            -moz-transform:scale(2,2);
+    }
+}
+

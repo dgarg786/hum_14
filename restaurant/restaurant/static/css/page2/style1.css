@@ -1,5 +1,7 @@
 
 
+
+
 .roww {
   z-index: 15;
   top:-40px;
@@ -76,6 +78,7 @@ h1 a:after, h1 a:before {
   left: -.05em;
   pointer-events: none;
   -webkit-mask: none;
+  -moz-mask: none;
 }
 
 h1 a:before {

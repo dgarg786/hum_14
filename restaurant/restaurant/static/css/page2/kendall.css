@@ -1,0 +1,336 @@
+@import url(http://fonts.googleapis.com/css?family=Yellowtail);
+@import url(https://fonts.googleapis.com/css?family=Poiret+One);
+
+body{
+  /*background-image: url(http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/blu_stripes.png);*/
+	margin: 0px;
+  /*background-image: url("transparent.png");*/
+  /*filter:blur(10px); -webkit-filter: blur(10px);*/
+  
+  
+}
+
+h2{
+  color: white;
+	font-family: 'Yellowtail', cursive;
+	font-size: 60px;
+  margin: 0px;
+  padding: 20px 5px 30px 60px;
+  text-align: center;
+}
+
+p{
+  cursor: pointer;
+  color: white;
+	font-family: 'Yellowtail', cursive;
+	font-size: 30px;
+  margin: 0px;
+  padding: 0px;
+ /* -moz-transform:rotate(90deg);
+  -webkit-transform:rotate(90deg);*/
+}
+
+.wrap{
+  position: fixed;
+  top: 260px;
+  right: -200px;
+}
+
+.slide{
+  background-image: url('oldtexture.jpg');
+  float: right;
+  width: 200px;
+  z-index: 2;
+  
+  -webkit-border-radius: 4px 0px 0px 4px;
+  -moz-border-radius: 4px 0px 0px 4px;
+  border-radius: 4px 0px 0px 4px;
+  
+  
+ 
+  -webkit-box-shadow: inset -2px 0px 10px #0d0d0d;
+  -moz-box-shadow: inset -2px 0px 10px #0d0d0d;
+  box-shadow: inset -2px 0px 10px #0d0d0d;
+}
+
+.button{
+  background-image: url('oldtexture.jpg');
+  color: white;
+  float: right;
+  font-family: 'Yellowtail', cursive;
+  margin: 75px 0px 0px 0px;
+  padding: 30px 0px;
+  z-index: 1;
+  
+  
+  -webkit-border-radius: 4px 0px 0px 4px;
+  -moz-border-radius: 4px 0px 0px 4px;
+  border-radius: 10px 0px 0px 10px;
+  
+  
+  /*-webkit-box-shadow: inset -2px 0px 50px #0d0d0d;
+  box-shadow: inset -2px 0px 50px #0d0d0d;*/
+}
+
+/*.button:hover{
+  cursor: pointer;
+  -webkit-box-shadow: inset -2px 0px 50px #0d0d0d;
+  box-shadow: inset -2px 0px 20px #0d0d0d;
+}*/
+
+
+/*.wraptop{
+  position: fixed;
+  top: 50px;
+  z-index: 3;
+}
+
+.wrapbottom{
+  position: fixed;    
+  bottom: 50px;
+  z-index: 3;
+}
+
+
+.uparse{
+  background-image: url(http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/vertical_cloth.png);
+  top: 100px;
+
+}
+
+.nichese{
+  background-image: url(http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/vertical_cloth.png);
+  bottom: 30px;
+
+}*/
+
+
+
+/*h5{
+  color: white;
+  font-family: 'Yellowtail', cursive;
+  font-size: 40px;
+  margin: 0px;
+  text-align: center;
+}*/
+
+/*#dimscreen{
+  position:fixed;
+    padding:0px;
+    margin:0px;
+
+    top:20px;
+    left:20px;
+
+    width: 100%;
+    height: 100%;
+    background-image: url("transparent.png");
+    filter: blur(10px);
+    /*opacity: 0;
+    /*-webkit-filter: blur(10px);
+    filter: blur(10px);
+    
+    
+}*/
+
+#upup{
+  filter: blur(0px); 
+  -webkit-filter: blur(0px);
+  -moz-filter: blur(0px);
+}
+
+#downdown{
+  filter: blur(0px); 
+  -webkit-filter: blur(0px);
+  -moz-filter: blur(0px);
+}
+
+#component{
+  filter: blur(0px); 
+  -webkit-filter: blur(0px);
+  -moz-filter: blur(0px);
+}
+
+#chinchu{
+  position: fixed;
+  top: 50px;
+  left: 40px;
+  width: 50px;
+  height: 50px;
+  z-index: 3;
+  visibility: hidden;
+}
+
+#neeche{
+  background-image: url('oldtexture.jpg');
+  position: fixed;
+  bottom: 10px;
+  right: 20px;
+  left: 20px;
+  visibility: hidden;
+  /*filter: url("blur.svg#gaussian_blur");*/
+
+  
+}
+
+#upar{
+  background-image: url('oldtexture.jpg');
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  left: 20px;
+  visibility: hidden;
+  /*filter: url("blur.svg#gaussian_blur");*/    
+}
+
+
+
+
+
+h6{
+  color: white;
+  font-family: 'Yellowtail';
+  font-size: 20px;
+}
+
+
+body {
+  color: white;
+}
+
+#expand {
+  cursor: pointer;
+}
+
+#coolstuff {
+  display: none;
+}
+
+#container {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+}
+
+ul {
+  text-align: left;
+}
+
+hr {
+  border-color: white;
+  border-bottom: 0;
+}
+
+table {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+
+tr {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+td {
+  no-border-top: 1px solid white;
+  padding: 5px 2px;
+}
+
+.image {
+  width: 150px;
+}
+
+.image > img {
+  width: 100%;
+  background: white;
+  border-radius: 2px;
+  box-shadow: 0 2px 7px rgba(0,0,0,0.4);
+  a-border: 1px solid black;
+}
+
+.amount {
+  width: 50px;
+}
+
+.amount > input {
+  color: white;
+  font-size: 16px;
+  background: transparent;
+  border: none;
+  width: 100%;
+  text-align: center;
+  outline: none;
+}
+
+.remove {
+  width: 30px;
+}
+
+.remove > div {
+  border-radius: 10px;
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  padding: 2px;
+  transition: background .3s, border .3s, transform .3s;
+  cursor: pointer;
+  text-align: center;
+  margin: auto;
+  border: 1px solid white;
+}
+
+.remove.hey > div {
+  background: red;
+  border-color: red;
+  transform: scale(1.3);
+}
+
+.remove:hover > div {
+  background: red;
+  border-color: red;
+}
+
+.big {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+#checkout {
+  padding: 10px;
+  font-size: 16px;
+  color: white;
+  display: inline-block;
+  margin: 2px;
+  border-radius: 3px;
+  text-align: center;
+  transition: background 0.2s;
+  background: #0a8f6c;
+  cursor: pointer;
+}
+
+#checkout > span {
+  width: 0;
+  display: inline-block;
+  overflow: hidden;
+  transition: width .3s;
+  text-align: right;
+}
+
+#checkout:hover > span {
+  width: 20px;
+}
+
+#footer {
+  opacity: 0.6;
+  border-top: 1px solid white;
+  padding-top: 10px;
+  text-align: center;
+  margin-top: 15px;
+}
+
+#footer a {
+  color: white;
+}

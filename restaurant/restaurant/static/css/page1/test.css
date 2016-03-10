@@ -277,6 +277,7 @@ h1 {
 @media print,
 (-o-min-device-pixel-ratio: 5/4),
 (-webkit-min-device-pixel-ratio: 1.25),
+(-moz-min-device-pixel-ratio: 1.25),
 (min-resolution: 120dpi) {
     /* Style adjustments for high resolution devices */
 }
@@ -485,6 +486,7 @@ html {
     font-size: 100%; /* 1 */
     -ms-text-size-adjust: 100%; /* 2 */
     -webkit-text-size-adjust: 100%; /* 2 */
+    -moz-text-size-adjust: 100%; 
 }
 
 /**
@@ -857,7 +859,8 @@ button,
 html input[type="button"], /* 1 */
 input[type="reset"],
 input[type="submit"] {
-    -webkit-appearance: button; /* 2 */
+    -webkit-appearance: button;
+    -moz-appearance: button; /* 2 */
     cursor: pointer; /* 3 */
     *overflow: visible;  /* 4 */
 }
