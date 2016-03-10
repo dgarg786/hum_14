@@ -40,6 +40,7 @@ $scope.nodes2 = nodes1;
 $scope.$apply();
 $('.upper_half').css('visibility','visible');
 $('.lower_half').css('visibility','visible');
+$('#addtocart').css('visibility','visible');
 console.log("below visible");
 });
 
@@ -71,6 +72,20 @@ $scope.xy = function(){
   //document.write(jugad.name);
   cart.push({ name: jugad.name});
   console.log(cart);
+
+   var moveback = move("#bye")
+            .x(0)
+          .y(0)
+          .scale(1)
+          .duration(0)
+          .end();
+        move("#bye")
+          .x(600)
+          .y(0)
+          .scale(.0005)
+          .duration(2000)
+          .then(moveback)
+          .end();
 }
 // $scope.chosenone = chosenone;
 
@@ -98,7 +113,7 @@ $scope.part4 = tokens.slice(3*n/4, n).join(' ');
          
        
         $("#bg1").css("display","block");
-
+        $("#bye").css("display","block");
         
 
 }

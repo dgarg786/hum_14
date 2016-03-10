@@ -24,14 +24,14 @@ items=[];
 
   
       
-n = 6;
+n = items.length;
  angle = 360/n;
 
 
 
 
 $('.component').remove();
-
+console.log("hlj");
  var $comp = $("<div>", {class: "component"});
  var $wrapper = $("<div>", {id: "cn-wrapper", class: "cn-wrapper"});
  var $ul = $("<ul>"); //, {id: "cn-wrapper", class: "cn-wrapper"});

@@ -14,7 +14,9 @@
         <script src="../../static/js/standardjs/modernizr-2.6.2.min.js"></script>
         <script src="../../static/js/standardjs/angular.min.js"></script>
         <script src="../../static/js/standardjs/propeller.js"></script>
+        
         <script src="../../static/js/script1.js"></script>
+
         <script>
 
         $(document).ready(function(){
@@ -32,9 +34,9 @@
         <link rel="stylesheet" type="text/css" href="../../static/css/page2/scroller.css">        
         <link  rel="stylesheet" type="text/css" href="../../static/css/page2/sty.css" >
         <link  rel="stylesheet" type="text/css" href="../../static/css/page2/style1.css" >
+        <link  rel="stylesheet" type="text/css" href="../../static/css/pricetag.css" >
     <!-- css files  -->
-    
-    
+   
     
   </head>
   {% verbatim %}
@@ -49,7 +51,7 @@
 <img id="pattern" src="../../static/images/Untitled-1.png"/>  
     
 
-<button ng-click = "xy()" style = "left:100px;position:relative;" >hey </button>  
+
 
   <div class ="upper_half">
    <div style = "width:100%;height:50%;background-color:rgba(255,179,255,0.5);position:absolute;top:0px;left:0px;z-index :-1;"> </div>
@@ -60,7 +62,11 @@
         <div class = "row" >
           <div class = "row" style = "margin-top :5px;margin-left:30px;">
             <div class = "col-md-2"  ng-repeat = "node in nodes"  >
+              <div class="price-tag" style = "background:red;">
+                  Rs {{node.price}}
+              </div>
               <img class="img-rounded" id="bg"  style = "top:15px;" ng-click = "khol(node)">>
+
               <!-- <div id = "but">
                 <img class="img-rounded" id="bg" src="drinks.jpg">
                 <div class="text-center h4" id="tex">{{node.name}}</div>
@@ -87,6 +93,9 @@
 
           <div class = "row" >
             <div class = "col-md-2"  ng-repeat = "node in nodes2" style = "padding-left:200px; top:-30px;">
+              <div class="price-tag" style = "background:red;">
+                  Rs {{node.price}}
+              </div>
               <img class="img-rounded" id="bg" src="" style = "top:15px;" ng-click = "khol(node)">>
               <!-- <div id = "but" style = "margin-left:150px;">
                 <img class="img-rounded" id="bg" src="drinks.jpg">
@@ -118,9 +127,12 @@
           
 
 
-           p<!-- ehli row -->
+           <!-- pehli row -->
           <div class = "row" style = "margin-top :5px;margin-left:30px;">
             <div class = "col-md-2"  ng-repeat = "node in nodes"  >
+              <div class="price-tag" style = "background:red;">
+                Rs {{node.price}}
+              </div>
               <img class="img-rounded" id="bg"  src="../../media/{{node.pic}}" style = "top:15px;" ng-click = "khol(node)">
               <!-- <div id = "but">
                 <img class="img-rounded" id="bg" src="drinks.jpg">
@@ -148,7 +160,11 @@
 
           <div class = "row">
             <div class = "col-md-2"  ng-repeat = "node in nodes2" style = "padding-left:200px;top:-30px;">
+              <div class="price-tag" style = "background:red;">
+                  Rs {{node.price}}
+              </div>
               <img class="img-rounded" id="bg"  style = "top:15px;" ng-click = "khol(node)">>
+
               <!-- <div id = "but" onclick = "lman()" style = "margin-left:150px;" >
                 <img class="img-rounded" id="bg" src="drinks.jpg">
                 <div class="text-center h4" id="tex">{{node.name}}</div>
@@ -176,9 +192,11 @@
          
       
       <div class="component1">
-    <img class="img-rounded" id="bg1" src="{{beech}}"  >
+    <img class="img-rounded" id="bg1" src="../../media/{{beech}}"  >
   </div>
-
+    <div class="component1">
+    <img class="img-rounded" id="bye" src="../../media/{{beech}}"  >
+  </div>
 
 
         <div class="component">
@@ -235,6 +253,49 @@
 
 <div style = "height:30%;width:5%;top:70%;left:95%;background-color:rgba(255,179,255,0);position:absolute;">
   </div>
+
+
+    <script src="../../static/js/move.js"></script>
+   <script type="text/javascript">
+
+     
+
+
+
+      // sq.onclick  
+      function xy1(){
+      //   var sq=document.getElementById('bg1');
+      // var cln=sq.cloneNode(true);
+       //$("#bg1").clone().attr("id","bye").appendTo("body");
+      //document.body.appendChild(cln);
+      var moveback = move("#bye")
+            .x(0)
+          .y(0)
+          .scale(1)
+          .duration(0)
+          .end();
+        move("#bye")
+          .x(600)
+          .y(0)
+          .scale(.0005)
+          .duration(2000)
+          .then(moveback)
+          .end();
+          
+
+          //  move("#bye")
+          // .x(-500)
+          // .y(-500)
+          // .scale(1)
+          // .duration(5000)  
+          // .end();
+
+
+      };
+    </script>
+
+    <button id = "addtocart" onclick = "xy1()" style = "visibility: hidden;" >Add to cart</button>
+
         {%endverbatim%}
   </body>
 </html>
