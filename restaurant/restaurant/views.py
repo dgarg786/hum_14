@@ -13,16 +13,20 @@ def index(request):
 def subCategory(request):
 	
 	if request.method == 'GET':
-		id_number=request.GET['category_id']
+		id_number=request.GET.get('category_id')
+		mainCategory=request.GET.get('mainCategory_id')
 		id_number=int(id_number)+1
+		c=CategoryName.objects.get(pk=mainCategory)
+		name=SubCategoryName.objects.filter(categoryName=c)
+
 		#print id_number
-		name=SubCategoryName.objects.filter(pk=id_number)
+		#name=SubCategoryName.objects.filter(pk=id_number)
    		
    		#print name
 	   	
 	   	print "hello"
 	   	
-	   	itemN=ItemName.objects.filter(subCategory=name).values("name","price","pic","details")	   	
+	   	itemN=ItemName.objects.filter(subCategory=name[id_number-1]).values("name","price","pic","details")	   	
 	   	#print itemN[0]._meta.get_all_field_name()
 	   	#print itemN.objects.filter()[:1].get()
 	   	print list(itemN)

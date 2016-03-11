@@ -16,12 +16,21 @@
         <script src="../../static/js/standardjs/propeller.js"></script>
         
         <script src="../../static/js/script1.js"></script>
+  
+       
 
         <script>
-
+        var widt_row0;var widt_row1;var present_row0; var present_row1;
         $(document).ready(function(){
-       $('.row0').scrollLeft(4000); 
-        });
+
+         widt_row0 =  $('.row0').innerWidth();
+         console.log(widt_row0);
+         widt_row1 =  $('.row1').innerWidth();
+          present_row0=widt_row0;
+           present_row1=0;
+       
+       $('.row0').scrollLeft(widt_row0); 
+               });
         </script>
     <!-- standard js files -->
 
@@ -36,13 +45,18 @@
         <link  rel="stylesheet" type="text/css" href="../../static/css/page2/style1.css" >
         <link  rel="stylesheet" type="text/css" href="../../static/css/pricetag.css" >
         <link rel="stylesheet" type="text/css" href="../../static/css/page2/kendall.css">
+        <link rel="stylesheet" type="text/css" href="../../static/css/page2/cartcutton.css">
     <!-- css files  -->
    
     
   </head>
   {% verbatim %}
   <body ng-controller="myController" id="hlo">
-       
+       <svg  height="0" style = "display:none;">
+            <filter height="116%" width="116%" y="-8%" x="-8%" id="svgBlur">
+                 <feGaussianBlur stdDeviation="8" in="SourceGraphic"/>
+            </filter>
+ </svg>
         <video muted autoplay  poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/polina.jpg" id="bgvid" loop>
   <!-- WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
 <source src="//demosthenes.info/assets/videos/polina.webm" type="video/webm">
@@ -59,8 +73,8 @@
   <!-- <div class = "container-fluid"  >  background-color:#456BB2 -->
 
     <div class = "row0" style = "-webkit-mask: -webkit-linear-gradient(left, transparent,transparent 3%,black 20%, black 80%,transparent 97%,transparent);-moz-mask: -moz-linear-gradient(left, transparent,transparent 3%,black 20%, black 80%,transparent 97%,transparent);">
-      <div  id = "mera" class ="col-md-12" style = "width :150%; -webkit-transform:rotate(180deg);-moz-transform:rotate(180deg)"  >
-        <div class = "row" >
+      <div  id = "mera " class ="col-md-12" style = "width :150%; -webkit-transform:rotate(180deg);-moz-transform:rotate(180deg);height:100%;"  >
+        <div class = "row" id = "upup">
           <div class = "row" style = "margin-top :5px;margin-left:30px;">
             <div class = "col-md-2"  ng-repeat = "node in nodes"  >
               <div class="price-tag" style = "background:red;">
@@ -73,7 +87,7 @@
                 <div class="text-center h4" id="tex">{{node.name}}</div>
                 <div class="text-center h4" id="tex" style = " margin-top:30px; color:red;">Rs {{node.price}}</div>
               </div> -->
-              <div class="roww"  style = "margin-left:115px;" ng-click = "khol(node)">>
+              <div class="roww"  style = "margin-left:115px;" ng-click = "khol(node)">
                   <div class="block">
                     <h1>
                         <a href="#" style="text-decoration:none;">{{node.name}}</a>
@@ -103,7 +117,7 @@
                 <div class="text-center h4" id="tex">{{node.name}}</div>
                 <div class="text-center h4" id="tex" style = " margin-top:30px; color:red;">Rs {{node.price}}</div>
               </div> -->
-              <div class="roww" style = "margin-left:115px;" ng-click = "khol(node)">>
+              <div class="roww" style = "margin-left:115px;" ng-click = "khol(node)">
                   <div class="block">
                     <h1>
                         <a href="#" style="text-decoration:none;">{{node.name}}</a>
@@ -124,7 +138,7 @@
   <!-- <div class = "container-fluid" >   background-color:rgb(221,230,57); -->
     <div class = "row1" style = "-webkit-mask: -webkit-linear-gradient(left, transparent,transparent 3%,black 20%, black 80%,transparent 97%,transparent);-moz-mask: -moz-linear-gradient(left, transparent,transparent 3%,black 20%, black 80%,transparent 97%,transparent);">
       <div  id = "mera1" class ="col-md-12"  style = "width:150%;">
-        <div class = "row">
+        <div class = "row" id = "downdown">
           
 
 
@@ -172,7 +186,7 @@
                 <div class="text-center h4" id="tex" style = " margin-top:30px; color:red;">Rs {{node.price}}</div>
               </div> -->
 
-                        <div class="roww"  style = "margin-left:115px;" ng-click = "khol(node)">>
+                        <div class="roww"  style = "margin-left:115px;" ng-click = "khol(node)">
 
                   <div class="block">
                     <h1>
@@ -235,9 +249,84 @@
     </dl>
    </div>
 </div> 
+
+
+<div id="container" class = "x1" style = "left:15%;top:-50%;position:absolute;height:50%;overflow:scroll;-webkit-transform:rotate(180deg);-moz-transform:rotate(180deg);background:rgba(128,0,128,0.9);z-index : 20">
+<table>
+  <!--<tr style="text-align:center;">
+    <td>Image</td>
+    <td>Name</td>
+    <td>Price</td>
+    <td>Amount</td>
+    <td>Subtotal</td>
+    <td> </td>
+  </tr>-->
+  <tr class="p" ng-repeat = "node in cart track by $index">
+    <td class="image"><img src="../../media/{{node.pic}}" /></td>
+    <td class="name">{{node.name}}</td>
+    <td class="price">Rs {{node.price}}</td>
+    <td class="amount"><input type="number" value="{{quanti[$index]}}" min="0" /></td>
+    <td class="pricesubtotal">Rs {{node.price * quanti[$index]}}</td>
+    <td class="remove" ng-click = "del(node)"><div>&times</div></td>
+  </tr>
+  
+  <tr>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+    <!-- <td>Subtotal:</td>
+    <td class="totalpricesubtotal" >{{summ}}</td> -->
+    <td> </td>
+  </tr>
+  <tr>
+    <td style="border-top:1px solid white" colspan="6"><br />
+      
+      <span class="big">Total: Rs <span class="realtotal">{{summ}}</span></span>
+    </td>
+  </tr>
+</table>
+  <!-- <div id="checkout">Checkout<span> &rarr;</span></div> -->
+
+</div>
       
 
+<div id="container" class = "x2" style = "left:15%;top:100%;position:absolute;height:50%;overflow:scroll;background:rgba(128,0,128,0.9);z-index : 20">
+<table>
+  <!--<tr style="text-align:center;">
+    <td>Image</td>
+    <td>Name</td>
+    <td>Price</td>
+    <td>Amount</td>
+    <td>Subtotal</td>
+    <td> </td>
+  </tr>-->
+  <tr class="p" ng-repeat = "node in cart track by $index">
+    <td class="image"><img src="../../media/{{node.pic}}" /></td>
+    <td class="name">{{node.name}}</td>
+    <td class="price">Rs {{node.price}}</td>
+    <td class="amount"><input type="number" value="{{quanti[$index]}}" min="0" /></td>
+    <td class="pricesubtotal">Rs {{node.price * quanti[$index]}}</td>
+    <td class="remove" ng-click = "del(node)"><div>&times</div></td>
+  </tr>
+  
+  <tr>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+    <!-- <td>Subtotal:</td>
+    <td class="totalpricesubtotal" >{{summ}}</td> -->
+    <td> </td>
+  </tr>
+  <tr>
+    <td style="border-top:1px solid white" colspan="6"><br />
+      
+      <span class="big">Total: Rs <span class="realtotal">{{summ}}</span></span>
+    </td>
+  </tr>
+</table>
+  <!-- <div id="checkout">Checkout<span> &rarr;</span></div> -->
 
+</div>
 
 
         
@@ -247,15 +336,28 @@
          <script src="../../static/js/selfjs/setup_midcircle.js"></script>
         <script src="../../static/js/selfjs/polyfills.js"></script>
 
-        <div  id = "hay" style = "height:30%;width:5%;top:0%;left:0%;background-color:rgba(255,179,255,0);position:absolute;">
-  </div>
-<div style = "height:30%;width:5%;top:0%;left:95%;background-color:rgba(255,179,255,0);position:absolute;">
+
+<svg  height="0" style = "display:none;">
+            <filter height="116%" width="116%" y="-8%" x="-8%" id="svgBlur">
+                 <feGaussianBlur stdDeviation="8" in="SourceGraphic"/>
+            </filter>
+ </svg>
+
+       <div id="hay1" class="hay" onclick="top_left()" style="display: none; height:30%; z-index=80;width:5%;top:0%;left:0%;background-color:rgba(255,255,255,0.7);position:absolute; ">
   </div>
 
-<div style = "height:30%;width:5%;top:70%;left:0%;background-color:rgba(255,179,255,0);position:absolute;">
+<img  id="arrow_img1"src="../../static/images/left-arrow-2.png" style="display: none; position: absolute; filter: none; height: 12%; width: 5.5%; top: 7%; left: 0.25%;" onclick="top_left()">
+<img id="arrow_img2"src="../../static/images/left-arrow-2.png" style="display: none; position: absolute; filter: none; height: 12%; width: 5.5%; top: 80%; left: 0.25%;z-index: 81;" onclick="bottom_left()">
+<img id="arrow_img3" src="../../static/images/right-arrow-2.png" style="display: none; position: absolute; filter: none; height: 12%; width: 5.5%; top: 7%; left: 94.25%; z-index: 81;" onclick="top_right()">
+<img id="arrow_img4" src="../../static/images/right-arrow-2.png" style="display: none; position: absolute; filter: none; height: 12%; width: 5.5%; top: 80%; left: 94.25%; z-index: 81;" onclick="bottom_right()">
+
+<div id="hay2" class="hay" onclick="top_right()" style="display: none; height:30%;width:5%;z-index=80;top:0%;left:95%;background-color:rgba(255,255,255,0.7);position:absolute;">
   </div>
 
-<div style = "height:30%;width:5%;top:70%;left:95%;background-color:rgba(255,179,255,0);position:absolute;">
+<div id="hay3" class="hay" onclick="bottom_left()" style=" display: none;height:28%;width:5%;z-index:80;top:72%;left:0%;background-color:rgba(255,255,255,0.7);position:absolute;">
+  </div>
+
+<div id="hay4" class="hay" onclick="bottom_right()" style="display: none; height:30%;width:5%;z-index:80;top:70%;left:95%;background-color:rgba(255,255,255,0.7);position:absolute;">
   </div>
 
 
@@ -272,6 +374,7 @@
       // var cln=sq.cloneNode(true);
        //$("#bg1").clone().attr("id","bye").appendTo("body");
       //document.body.appendChild(cln);
+
       var moveback = move("#bye")
             .x(0)
           .y(0)
@@ -298,20 +401,65 @@
       };
     </script>
 
-    <button id = "addtocart" onclick = "xy1()" style = "visibility: hidden;" >Add to cart</button>
+   
+
+
+
+   <!--  cart button  -->
+
+ <a id="cart_button" href="#" ng-click = "xy()" class="contain-icon icon-hook " >
+        <!--Begin Third Cart Icon-->
+        <svg class="cart-icon-3" version="1.1" width="150px" height="150px" viewBox="0 0 90.156 89.89">
+          <path class="main-path-3" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+          M14.973,26.021V15.296c0-1.109-0.865-2.292-1.922-2.628L1.49,8.99 M62.354,55.639c0,1.109-0.101,2.236-0.224,2.504
+          c-0.123,0.268-1.684,0.487-2.793,0.487H17.989c-1.109,0-2.242-0.098-2.517-0.218c-0.275-0.12-0.5-1.664-0.5-2.773V23.273
+          c0-1.109,0.101-2.236,0.224-2.504c0.123-0.268,1.684-0.487,2.793-0.487h41.348c1.109,0,2.242,0.098,2.517,0.218 c0.275,0.12,0.5,1.664,0.5,2.773V55.639z"/>
+          <line class="center-line-3" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="30.863" y1="20.74" x2="30.863" y2="58.63"/>
+          <line class="center-line-3" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="46.837" y1="20.74" x2="46.837" y2="58.63"/>
+          <line class="center-line-3" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="15.973" y1="33.308" x2="61.24" y2="33.308"/>
+          <line class="center-line-3" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="15.973" y1="46.285" x2="61.125" y2="46.285"/>
+          <circle class="wheel-3" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="23.442" cy="64.554" r="5.924"/>
+          <circle class="wheel-3" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="53.314" cy="64.554" r="5.924"/>
+          <path class="outer-plus-3" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-miterlimit="10" d="M67.378,52.665
+          c1.29-0.143,2.615-0.147,3.959,0.001c9.837,1.087,16.93,9.943,15.843,19.78s-9.943,16.93-19.78,15.843
+          c-7.378-0.815-13.212-6.001-15.21-12.692"/>
+          <path class="cart-plus-3" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+          M61.516,70.556h17.695 M70.364,61.708v17.695"/>
+          </svg>
+        
+        <div class="one"></div>
+      </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     <div class="wrap" >
-      <div class="slide">
-          <h2>The Nifty Fifties</h2>
+      <div class="slide" >
+          <h2>Order</h2>
       </div>
-        <div class="button" onclick="scrollWin(0,100)">
-          <p>Kheech</p>
+        <div class="button" onclick="dhundh()">
+          <p>Cart</p>
         </div>
     </div>
 
 
-
+<!-- scrollWin(0,100) -->
 
 
 
@@ -321,7 +469,7 @@
 
 
 <script src="../../static/js/selfjs/behati.js"></script>
-<script src="../../static/js/selfjs/gigi.js"></script>
+<!-- <script src="../../static/js/selfjs/gigi.js"></script> -->
         {%endverbatim%}
   </body>
 </html>

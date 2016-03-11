@@ -12,7 +12,7 @@ var myApp = angular
 
 $scope.lman1=function(i){
 console.log("hello from here");
-$.get("subCategory/",{category_id:i},function(data){
+$.get("subCategory/",{category_id:i,mainCategory_id:mainCategory},function(data){
       
      // console.log(data);
       var json= JSON.parse(data);
@@ -21,23 +21,37 @@ $.get("subCategory/",{category_id:i},function(data){
       var nodes1= [];
       console.log(json.length);
 
-   for (var i =0;i<json.length/2;i++)
+   for (var i =0;i<Math.ceil(json.length/2);i++)
 {
     nodes.push(
         json[i]
     );
 }
-  for (var i =json.length/2;i<json.length;i++)
+  for (var i =Math.ceil(json.length/2);i<json.length;i++)
 {
     nodes1.push(
         json[i]
     );
-}   
+} 
+
+
+
 //nodes1[5].pic="../../static/images/drinks.jpg";
-console.log(nodes1[5].pic);
+//console.log(nodes1[5].pic);
 $scope.nodes = nodes;
 $scope.nodes2 = nodes1;
 $scope.$apply();
+      
+
+      $("#hay1").css("display","block");
+      $("#hay2").css("display","block");
+      $("#hay3").css("display","block");
+      $("#hay4").css("display","block");
+      $("#arrow_img1").css("display","block");
+      $("#arrow_img2").css("display","block");
+      $("#arrow_img3").css("display","block");
+      $("#arrow_img4").css("display","block");
+$('#cart_button').css('display','block');
 $('.upper_half').css('visibility','visible');
 $('.lower_half').css('visibility','visible');
 $('#addtocart').css('visibility','visible');
@@ -62,16 +76,50 @@ console.log("below visible");
 
 var beech = "../../static/images/POHA.jpg"; ///middle image on button click of item
 var chosenone = "Half Poha";      //item name
-
+var quant = 1;
 $scope.beech = beech;
+$scope.quant = quant;
+
 
 var jugad;
 var cart = [];
+var quanti = [];
+$scope.cart = cart;
+var sum = 0;
+$scope.summ = sum;
+$scope.quanti = quanti;
 
+
+
+
+// $scope.cart = cart;
 $scope.xy = function(){
   //document.write(jugad.name);
-  cart.push({ name: jugad.name});
+  console.log(cart.indexOf(jugad));
+  //cart.push({jugad :jugad ,quantity:quant});
+  //var q;
+  if(cart.indexOf(jugad)==-1){
+  sum += jugad.price;
+  cart.push(jugad);
+  quanti.push(1);
+  update_cart(1);
+
+
+}
+else{
+  quanti[cart.indexOf(jugad)]++;
+  update_cart(quanti[cart.indexOf(jugad)]);
+  sum += jugad.price;
+}
+  $scope.cart = cart;
+  $scope.quanti = quanti;
+  $scope.summ = sum;
   console.log(cart);
+    console.log(cart.indexOf(jugad));
+
+
+
+
 
    var moveback = move("#bye")
             .x(0)
@@ -80,13 +128,23 @@ $scope.xy = function(){
           .duration(0)
           .end();
         move("#bye")
-          .x(600)
+          .x(450)
           .y(0)
-          .scale(.0005)
+          .scale(.005)
           .duration(2000)
           .then(moveback)
           .end();
+
 }
+
+$scope.del = function del(node){
+  var ind = cart.indexOf(node);
+  sum -= cart[ind].price * quanti[ind];
+  $scope.cart.splice(ind, 1);
+  $scope.quanti.splice(ind, 1);
+  $scope.summ = sum;
+};
+
 // $scope.chosenone = chosenone;
 
 $scope.khol = function(node){
@@ -103,6 +161,7 @@ $scope.part4 = tokens.slice(3*n/4, n).join(' ');
         
         $( '.main_scroll' ).css("visibility","visible");
         $( '.list' ).makisu( 'close' );
+        
     
         
          $timeout(function(){
@@ -115,6 +174,14 @@ $scope.part4 = tokens.slice(3*n/4, n).join(' ');
         $("#bg1").css("display","block");
         $("#bye").css("display","block");
         
+     if(cart.indexOf(jugad)==-1){
+  close_cart();
+}
+else{
+  
+  update_cart(quanti[cart.indexOf(jugad)]);
+}
+
 
 }
 });
@@ -134,3 +201,47 @@ function drop(ev) {
     ev.target.appendChild(document.getElementById(data));
 
 };
+
+function update_cart(i){
+
+var icon = document.getElementsByClassName("icon-hook");
+
+
+   
+    
+    var currentClass = icon[0].getAttribute('class'); // The starting class
+
+    
+
+   icon[0].setAttribute('class', currentClass.replace(' active', ''));
+      
+setTimeout(function(){ 
+currentClass = icon[0].getAttribute('class'); 
+icon[0].setAttribute('class', currentClass + ' active');
+      $('.one').text(i);
+
+ }, 300);
+
+      
+    //}
+ 
+};
+function close_cart(){
+
+var icon = document.getElementsByClassName("icon-hook");
+
+
+   
+    
+    var currentClass = icon[0].getAttribute('class'); // The starting class
+
+   
+
+   icon[0].setAttribute('class', currentClass.replace(' active', ''));   
+
+
+      
+ 
+};
+
+

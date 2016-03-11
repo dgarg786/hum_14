@@ -1,11 +1,11 @@
 // Really messy...
-
-var el;
+$(document).ready(function(){
+    var el;
 
 $("tr").each(function() {
-  var subtotal = parseFloat($(this).children(".price").text().replace("$",""));
+  var subtotal = parseFloat($(this).children(".price").text().replace("Rs ",""));
   var amount = parseFloat($(this).children(".amount").children("input").val());
-  $(this).children(".pricesubtotal").text("$"+
+  $(this).children(".pricesubtotal").text("Rs"+
                                           (Math.round(
                                             subtotal*amount*100
                                           )/100).toFixed(2));
@@ -20,9 +20,9 @@ $(".amount > input").bind("change keyup", function() {
       el.removeClass("hey");
     }, 200);
   }
-  var subtotal = parseFloat($(this).parents("td").parents("tr").children(".price").text().replace("$",""));
+  var subtotal = parseFloat($(this).parents("td").parents("tr").children(".price").text().replace("Rs ",""));
   var amount = parseFloat($(this).parents("td").parents("tr").children(".amount").children("input").val());
-  $(this).parents("td").parents("tr").children(".pricesubtotal").text("$"+
+  $(this).parents("td").parents("tr").children(".pricesubtotal").text("Rs"+
                                           (Math.round(
                                             subtotal*amount*100
                                           )/100).toFixed(2));
@@ -30,28 +30,35 @@ $(".amount > input").bind("change keyup", function() {
 });
 
 $(".remove > div").click(function() {   
-  $(this).parents("td").parents("tr").remove();
-  changed();
+  // $(this).parents("td").parents("tr").remove();
+  // changed();
+  document.write("hello");
 });
 
 function changed() {
   var subtotal = 0;
   $(".p").each(function() {
-    subtotal = subtotal + parseFloat($(this).children(".pricesubtotal").text().replace("$",""));
+    subtotal = subtotal + parseFloat($(this).children(".pricesubtotal").text().replace("Rs ",""));
   });
   $(".totalpricesubtotal").text("$"+(Math.round(subtotal*100)/100).toFixed(2));
   var a = (subtotal/100*105)+parseFloat($(".shipping").text())
   var total = (Math.round(a*100)/100).toFixed(2);
   $(".realtotal").text(total);
-  $(".taxval").text("($"+(Math.round(subtotal*5)/100).toFixed(2)+") ");
+  $(".taxval").text("(Rs"+(Math.round(subtotal*5)/100).toFixed(2)+") ");
 }
 
 $("#checkout").click(function() {
-  alert("And that's $"+$(".realtotal").text()+", please.");
+  alert("And that's Rs "+$(".realtotal").text()+", please.");
 });
 
 changed();
 
 $("#expand").click(function() {
   $("#coolstuff").toggle();
+});
+});
+$(".remove > div").click(function() {   
+  // $(this).parents("td").parents("tr").remove();
+  // changed();
+  document.write("hello");
 });

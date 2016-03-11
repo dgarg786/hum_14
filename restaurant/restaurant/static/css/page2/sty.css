@@ -1,3 +1,6 @@
+	
+
+
 	.upper_half{
 
  
@@ -203,3 +206,19 @@ video {
    opacity: .5;
 }
 
+#upup{
+	filter: url("#svgBlur");
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+}
+#downdown{
+	filter: url("#svgBlur");
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+}
+.hay {
+    filter: url("#svgBlur");
+    -webkit-filter: blur(8px);
+    filter: blur(8px);
+    
+}

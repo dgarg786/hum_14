@@ -4,11 +4,11 @@ var selector = d3.select('ul');
 var n = 6;
 var angle = 360/n;
 var items=[];
-
+var mainCategory
 
 
 function setup_centercircle(category_selected){
-
+mainCategory=category_selected
 items=[];
   
   $.get("category/",{category_id:category_selected},function(data){
@@ -108,3 +108,84 @@ function handler(){
   function closeWrapper(){
     classie.remove(wrapper, 'opened-nav');
   }
+
+
+  function top_left(){
+console.log( widt_row0);
+
+
+// if(present_row0>500){
+// present_row0-=500;}
+// else
+ present_row0=0;
+console.log(present_row0);
+
+// $('.row0').scrollLeft(0);
+
+// $('.row0').animate({
+//    scrollLeft: ""+present_row0
+// }, 1000);
+
+$('.row0').animate({
+   scrollLeft: present_row0
+}, 1000);
+
+
+
+};
+function top_right(){
+
+// if(present_row0<(widt_row0-500)){
+// present_row0+=500;}
+// else 
+  present_row0=widt_row0;
+
+$('.row0').animate({
+   scrollLeft: present_row0
+}, 1000);
+
+
+
+
+
+
+};
+
+function bottom_left(){
+console.log("3");
+
+
+
+
+
+// if(present_row1>500){
+// present_row1-=500;}
+// else 
+  present_row1=0;
+
+$('.row1').animate({
+   scrollLeft: present_row1
+}, 1000);
+
+
+};
+
+function bottom_right (){
+console.log("2");
+
+
+
+
+// if(present_row1<(widt_row1-500)){
+// present_row1+=500;}
+// else 
+  present_row1=widt_row1;
+
+$('.row1').animate({
+   scrollLeft: present_row1
+}, 1000);
+
+
+
+
+};

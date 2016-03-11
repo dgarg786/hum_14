@@ -242,7 +242,17 @@ function addHummerEventListener(that, d){
      $(".main_scroll").css("visibility","hidden");
      $(".upper_half").css("visibility","hidden");
      $(".lower_half").css("visibility","hidden");
+     $("#cart_button").css("display","none");
       $("#bg1").css("display","none");
+      $("#bye").css("display","none");
+      $("#hay1").css("display","none");
+      $("#hay2").css("display","none");
+      $("#hay3").css("display","none");
+      $("#hay4").css("display","none");
+      $("#arrow_img1").css("display","none");
+      $("#arrow_img2").css("display","none");
+      $("#arrow_img3").css("display","none");
+      $("#arrow_img4").css("display","none");
      var id;
      node  
                .style('visibility',function(e,i){

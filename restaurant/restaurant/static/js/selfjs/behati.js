@@ -12,9 +12,14 @@ $(document).ready(function(){
   
   $(".button").on("click", function(){
   	if ($(wrap).css("marginRight") == "0px") {
+
   		$(wrap).animate({marginRight:"200px"});
+      $(".x2").animate({top:"50%"});
+      $(".x1").animate({top:"0%"});
   	}else if ($(".wrap").css("marginRight") == "200px") {
-  		$(wrap).animate({marginRight: "0px"})
+  		$(wrap).animate({marginRight: "0px"});
+      $(".x2").animate({top:"100%"});
+      $(".x1").animate({top:"-50%"});
   	};
 
   	// $(wrap).animate({marginRight: "200px"});
@@ -52,8 +57,15 @@ function dikha(){
 };
 
 function dhundh(){
+
+  // $("#upup").css("filter","blur(8px)");
+  // $("#downdown").css("filter","blur(8px)");
   up1 = document.getElementById('upup');
+  car = document.getElementById('cart_button');
+  car.style.display = (car.style.display != 'none' ? 'none' : 'block');
   down1 = document.getElementById('downdown');
+  up1.style.filter = (up1.style.filter != 'blur(5px)' ? 'blur(5px)' : 'blur(0px)');
+  down1.style.filter = (down1.style.filter != 'blur(5px)' ? 'blur(5px)' : 'blur(0px)');
   up1.style.webkitFilter = (up1.style.webkitFilter != 'blur(5px)' ? 'blur(5px)' : 'blur(0px)');
   down1.style.webkitFilter = (down1.style.webkitFilter != 'blur(5px)' ? 'blur(5px)' : 'blur(0px)');
   // gola = document.getElementById('cn-wrapper');
@@ -69,3 +81,5 @@ function dhundh(){
 function scrollWin(x, y){
   window.scrollBy(x, y);
 }
+
+

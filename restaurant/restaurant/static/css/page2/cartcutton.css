@@ -1,0 +1,111 @@
+
+
+
+
+
+#cart_button {
+    position: absolute;
+  display: none;
+  top: 35%;
+  left: 75%;
+  z-index: 11;
+  
+  
+  margin: auto;
+  padding-top: 50px;
+  text-decoration: none;
+  color: white;
+  width: 150px;
+  height: 150px;
+}
+
+
+
+
+.icon-hook {
+  position: relative;
+}
+
+
+
+
+.demo-1 {
+  background: green;
+}
+
+/* Cart Demo 3 */
+.one {
+  position: absolute;
+  top: 65px;
+  left: 47px;
+  color: #ef9234;
+  font-size: 55px;
+  opacity: 0;
+  -moz-transform: scale(.1) rotate(260deg);
+  -webkit-transform: scale(.1) rotate(260deg);
+}
+
+.center-line-3 {
+  stroke-dasharray: 50;
+}
+
+.active .center-line-3 {
+  -moz-animation: remove-middle 1s forwards;
+  -webkit-animation: remove-middle 1s forwards;
+}
+
+.active .one {
+  -moz-animation: count 1500ms 500ms forwards;
+  -webkit-animation: count 1500ms 500ms forwards;
+}
+
+@-moz-keyframes count {
+  50% {
+    opacity: 1;
+    -moz-transform: translateY(-45px);
+  }
+  100% {
+    opacity: 1;
+    -moz-transform: translateY(15px);
+  }
+}
+@-webkit-keyframes count {
+  50% {
+    opacity: 1;
+    -webkit-transform: translateY(-45px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(15px);
+  }
+}
+
+@-moz-keyframes remove-middle {
+  to {
+    stroke-dashoffset: 50;
+  }
+}
+@-webkit-keyframes remove-middle {
+  to {
+    stroke-dashoffset: 50;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+}
