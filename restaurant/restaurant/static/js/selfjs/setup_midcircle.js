@@ -4,11 +4,11 @@ var selector = d3.select('ul');
 var n = 6;
 var angle = 360/n;
 var items=[];
-var mainCategory
+var mainCategory;
 
 
 function setup_centercircle(category_selected){
-mainCategory=category_selected
+mainCategory=category_selected;
 items=[];
   
   $.get("category/",{category_id:category_selected},function(data){
@@ -20,7 +20,7 @@ items=[];
         items.push(
             json[i]
         );
-        }
+        };
 
   
       
@@ -40,6 +40,8 @@ $wrapper.append($ul);
 $comp.append($wrapper);
    
 $('body').append($comp);
+
+console.log("hlj1");
 selector = d3.select('ul');
  new Propeller(document.getElementsByClassName('component'), {inertia: 0.95});    
 
@@ -71,7 +73,11 @@ $(".csstransforms .cn-wrapper li a").css("-moz-transform","skew("+(-1)*(90-angle
 
      
 
+$('.component').css("visibility","visible");
 
+setTimeout(function() {   
+              handler();
+              }, 700);
 
 });
 
@@ -107,6 +113,7 @@ function handler(){
   }
   function closeWrapper(){
     classie.remove(wrapper, 'opened-nav');
+     console.log("closeWrapper");
   }
 
 

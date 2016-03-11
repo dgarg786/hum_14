@@ -25,16 +25,16 @@ function openpage2(d,category_selected){
 
                 
                setup_centercircle(category_selected);
-            setTimeout(function() {   
-              
-              $('.component').css("visibility","visible");
-              }, 100);
+            // setTimeout(function() {   
+            //   console.log("abdekho");
+            //   $('.component').css("visibility","visible");
+            //   }, 500);
 
              
 
-              setTimeout(function() {   
-              handler();
-              }, 400);
+            //   setTimeout(function() {   
+            //   handler();
+            //   }, 700);
       
 
 

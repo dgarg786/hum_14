@@ -93,7 +93,7 @@
 	border-radius: 50%;
 	/*background: #429a67;*/
 	/*background: rgba(255,51,51,0.8);*/
-	background: radial-gradient(transparent 35%, rgba(255,51,51,0.8) 35%);
+	background: radial-gradient(transparent 45%, rgba(255,51,51,0.8) 35%);
 	color: #fff;
 	text-align: center;
 	text-decoration: none;
@@ -118,7 +118,7 @@
 .csstransforms .cn-wrapper li a:active,
 .csstransforms .cn-wrapper li a:focus {
 	
-	background: radial-gradient(transparent 35%, #ff8080 35%);
+	background: radial-gradient(transparent 45%, #ff8080 35%);
 	
 }
 
